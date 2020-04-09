@@ -1,0 +1,181 @@
+$color-blue: rgb(60, 114, 196);
+$color-purple: rgb(165, 61, 185);
+$color-yellow: rgb(241, 202, 70);
+$color-green: rgb(45, 197, 134);
+$color-red: rgb(216, 89, 89);
+$color-dark-grey: rgb(87, 87, 87);
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+i,
+svg {
+	pointer-events: none;
+}
+
+.sequencer {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.kick-track,
+.snare-track,
+.hihat-track {
+	margin-top: 5rem;
+	display: flex;
+	align-items: center;
+	width: 70%;
+
+	&__controls {
+		flex: 1;
+		margin: 0 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__title,
+	&__select {
+		flex: 1;
+	}
+
+	&__select {
+		margin-left: auto;
+		padding: 1rem;
+		font-size: 1rem;
+	}
+}
+
+.mute {
+	padding: 1rem;
+	margin: 0 4rem;
+	max-width: 5rem;
+	border: none;
+	background: $color-dark-grey;
+	color: #fff;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all .5s ease;
+	opacity: 0.3;
+
+	&.active {
+		opacity: 1;
+	}
+}
+
+.kick,
+.snare,
+.hihat {
+	display: flex;
+}
+
+.kick-pad,
+.snare-pad,
+.hihat-pad {
+	width: 5rem;
+	height: 5rem;
+	margin: 1rem .5rem;
+	cursor: pointer;
+	transition: all .5s ease;
+}
+
+.kick-pad {
+	background: $color-blue;
+	opacity: 0.3;
+
+	&.active {
+		opacity: 1;
+	}
+}
+
+.snare-pad {
+	background: $color-purple;
+	opacity: 0.3;
+	&.active {
+		opacity: 1;
+	}
+}
+
+.hihat-pad {
+	background: $color-yellow;
+	opacity: 0.3;
+	&.active {
+		opacity: 1;
+	}
+}
+
+.play {
+	padding: 1rem 2rem;
+	margin-top: 3rem;
+	width: 30%;
+	font-size: 1.5rem;
+	background: $color-green;
+	color: #fff;
+	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+
+	&.active {
+		background: $color-red;
+	}
+}
+
+.tempo {
+	margin: 3rem;
+	width: 30%;
+
+	&__slider {
+		padding: .3rem;
+		margin: 1rem 0;
+		width: 100%;
+		appearance: none;
+		position: relative;
+		background: rgb(88, 88, 88);
+		outline: none;
+		cursor: pointer;
+		border-radius: 1rem;
+
+		&::-webkit-slider-thumb {
+			appearance: none;
+			width: 1rem;
+			height: 1rem;
+			border-radius: 50%;
+			background: #fff;
+		}
+	}
+
+	&__text {
+		font-size: 1.5rem;
+		margin: 1rem;
+		text-align: center;
+	}
+
+	&__span {
+		font-size: 2rem;
+	}
+}
+
+@keyframes playTrack {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+	}
+}
